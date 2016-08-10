@@ -5,6 +5,7 @@ This catalog is useful when you have services that do not run the Amalgam8 proto
 
 The name of the config file should be `<namespace>.conf` and the format of the file is a JSON object defined by the following schema: 
 
+```
 {
   "type": "object",
   "properties": {
@@ -60,5 +61,6 @@ The name of the config file should be `<namespace>.conf` and the format of the f
     "instances"
   ]
 }
+```
 
 See [example.conf](example.conf) for an example config file.

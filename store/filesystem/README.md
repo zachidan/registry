@@ -1,7 +1,7 @@
 # FileSystem Catalog
 
 The FileSystem catalog extension allows the registry to pull static service information from a file in addition to supporting standard registration via REST API.
-This catalog is useful when you have services that do not run the Amalgam8 protocol (e.g., database service), but you want other services to discover these services using the standard Amalmgam8 discovery REST API.
+This catalog is useful when you have services that do not run the Amalgam8 protocol (e.g., database service), but you want other services to discover these services using the standard Amalgam8 discovery REST API.
 
 The name of the config file should be `<namespace>.conf` and the format of the file is a JSON object defined by the following schema: 
 
@@ -33,11 +33,13 @@ The name of the config file should be `<namespace>.conf` and the format of the f
             ]
           },
           "ttl": {
-            "type": "integer"
+            "type": "integer",
+            "default": 30
           },
           "status": {
             "type": "string",
-            "oneOf": ["STARTING", "UP", "OUT_OF_SERVICE"]
+            "enum": ["STARTING", "UP", "OUT_OF_SERVICE"],
+            "default": "UP"
           },
           "tags": {
             "type": "array",
@@ -46,8 +48,7 @@ The name of the config file should be `<namespace>.conf` and the format of the f
             }
           },
           "metadata": {
-            "type": "object",
-            "properties": {}
+            "type": "object"
           }
         },
         "required": [
